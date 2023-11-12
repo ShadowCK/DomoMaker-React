@@ -14,7 +14,7 @@ const handleDomo = (e) => {
     return false;
   }
 
-  helper.sendPost(e.target.action, { name, age });
+  helper.sendPost(e.target.action, { name, age }, loadDomosFromServer);
 
   return false;
 };

@@ -1,6 +1,4 @@
-const redirect = (req, res, location) => {
-  return req.method === 'POST' ? res.json({ redirect: location }) : res.redirect(location);
-};
+const redirect = (req, res, location) => (req.method === 'POST' ? res.json({ redirect: location }) : res.redirect(location));
 
 const requiresLogin = (req, res, next) => {
   if (!req.session.account) {
