@@ -50,9 +50,9 @@ const deleteDomo = async (req, res) => {
       age: req.body.age,
       ability: req.body.ability,
     };
-    const docs = await Domo.findOneAndDelete(query);
+    const deletedDomo = await Domo.findOneAndDelete(query).select('name age ability').lean().exec();
 
-    return res.json({ domos: docs });
+    return res.json({ deletedDomo });
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: 'Error retrieving domos!' });
